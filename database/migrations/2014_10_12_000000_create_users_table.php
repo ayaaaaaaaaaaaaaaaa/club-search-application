@@ -19,8 +19,17 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('icon', 200)->nullable();
+            $table->string('Instagram_link', 200)->nullable();
+            $table->string('Twitter_link', 200)->nullable();
+            $table->string('self_introduction', 200)->nullable();
+            $table->string('activity_overview', 200)->nullable();
+            $table->string('activity_day', 200)->nullable();
+            $table->integer('activity_number_of_people')->nullable();
+            $table->foreignId('category_id')->constrained();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
