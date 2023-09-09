@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('activity_overview', 200)->nullable();
             $table->string('activity_day', 200)->nullable();
             $table->integer('activity_number_of_people')->nullable();
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->nullable()->constrained();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
