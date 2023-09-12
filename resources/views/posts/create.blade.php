@@ -27,7 +27,7 @@
             </form>
             
             <div class="footer">
-                <a herf="/">戻る</a>
+                <a href="/">戻る</a>
             </div>
             
         </body>
