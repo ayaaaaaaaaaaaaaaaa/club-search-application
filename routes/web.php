@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\IventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,15 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts/{post}', 'posts_show')->name('posts_show');
     Route::put('/posts/{post}', 'posts_update')->name('posts_update');
     Route::get('/posts/{post}/edit', 'posts_edit')->name('posts_edit');
-    
-    
+});
+
+Route::controller(IventController::class)->middleware(['auth'])->group(function(){
+   Route::get('/ivent', 'ivent')->name('ivent'); 
+   Route::post('/ivents/store', 'ivents_store')->name('ivent_store');
+   Route::get('/ivents/create', 'ivents_create')->name('ivent_create');
+   Route::get('/ivents/{ivent}', 'ivents_show')->name('ivents_show');
+   Route::put('/ivents/{ivent}', 'ivents_update')->name('ivents_update');
+   Route::get('/ivents/{ivent}/edit', 'ivents_edit')->name('ivents_edit');
 });
 
 
