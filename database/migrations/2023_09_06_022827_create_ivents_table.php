@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50);
             $table->string('ivent_overview', 200);
-            $table->string('photo', 200)->nullable;
+            $table->string('photo', 200)->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();

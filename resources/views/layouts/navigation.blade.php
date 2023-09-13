@@ -20,11 +20,11 @@
                     <x-nav-link :href="route('timeline')" :active="request()->routeIs('timeline')">
                         {{ __('TimeLine') }}
                     </x-nav-link>
-                    {{--
+                    
                     <x-nav-link :href="route('ivent')" :active="request()->routeIs('ivent')">
                         {{ __('Ivent') }}
                     </x-nav-link>
-                    --}}
+                    
                 </div>
             </div>
 
