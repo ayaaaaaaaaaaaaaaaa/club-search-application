@@ -24,9 +24,13 @@ Route::get('/dashboard', function () {
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'timeline')->name('timeline');
+    Route::post('/posts/store', 'posts_store')->name('posts_store');
     Route::get('/posts/create', 'posts_create')->name('posts_create');
-    Route::post('/posts', 'posts_store')->name('posts_store');
     Route::get('/posts/{post}', 'posts_show')->name('posts_show');
+    Route::put('/posts/{post}', 'posts_update')->name('posts_update');
+    Route::get('/posts/{post}/edit', 'posts_edit')->name('posts_edit');
+    
+    
 });
 
 
