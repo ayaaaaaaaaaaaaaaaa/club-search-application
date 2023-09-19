@@ -20,7 +20,7 @@ class IventController extends Controller
     
     public function ivents_show(Ivent $ivent)
     {
-        return view('ivents.show')->with(['ivent' => $ivent]);
+        return view('ivents.show')->with(['ivent' => $ivent, 'comments' => $ivent->comments()->get()]);
     }
 
     public function ivents_store(IventRequest $request, Ivent $ivent)

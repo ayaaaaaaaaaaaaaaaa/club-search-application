@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\IventController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,12 @@ Route::controller(IventController::class)->middleware(['auth'])->group(function(
    Route::get('/ivents/{ivent}', 'ivents_show')->name('ivents_show');
    Route::put('/ivents/{ivent}', 'ivents_update')->name('ivents_update');
    Route::get('/ivents/{ivent}/edit', 'ivents_edit')->name('ivents_edit');
+});
+
+Route::controller(CommentController::class)->middleware(['auth'])->group(function(){
+    Route::post('/{post}/comment', 'posts_comment')->name('posts_comment');
+    Route::post('/{ivent}/comment','ivents_comment')->name('ivents_comment');
+
 });
 
 
