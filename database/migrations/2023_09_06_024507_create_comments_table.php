@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('comment', 200);
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('post_id')->constrained();
+            $table->foreignId('post_id')->nullable()->constrained();
+            $table->foreignId('ivent_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
