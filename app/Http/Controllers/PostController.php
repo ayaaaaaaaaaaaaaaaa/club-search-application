@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Cloudinary;
 
 class PostController extends Controller
 {
@@ -21,6 +22,10 @@ class PostController extends Controller
     public function posts_store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
+        if($request->file('photo')){
+            $image_url = Cloudinary::upload($request->file('photo')->getRealPath())->getSecurePath();
+            $input += ['photo' => $image_url];
+        }
         $input += ['user_id' => Auth::id()];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);

@@ -21,6 +21,11 @@
                             <a href="/ivents/{{ $ivent->id }}">{{ $ivent->title }}</a>
                         </h2>
                         <p class='ivent_overview'>{{ $ivent->ivent_overview }}</p>
+                        @if($ivent->photo)
+                        <div>
+                            <img src="{{ $ivent->photo }}" alt="画像が読み込めません。"/>
+                        </div>
+                        @endif
                         <br>
                     </div>
                 @endforeach
