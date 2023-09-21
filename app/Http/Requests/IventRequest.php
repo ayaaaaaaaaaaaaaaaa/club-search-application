@@ -26,6 +26,7 @@ class IventRequest extends FormRequest
         return [
             'ivent.title' => 'required|string|max:100',
             'ivent.ivent_overview' => 'required|string|max:4000',
+            'ivent.photo' => 'file|image|mimes:jpeg,jpg,png',
         ];
     }
 }

@@ -17,6 +17,11 @@
                 <div class='ivent'>
                     <h2 class='title'>{{ $ivent->title }}</h2>
                     <p class='ivent_overview'>{{ $ivent->ivent_overview }}</p>
+                    @if($ivent->photo)
+                    <div>
+                        <img src="{{ $ivent->photo }}" alt="画像が読み込めません。"/>
+                    </div>
+                    @endif
                 </div>
             </div>
             
@@ -33,6 +38,9 @@
                 <input type="submit" value="送信"/>
             </form>
             
+            <div class='footer'>
+                <a href='/ivent'>戻る</a>
+            </div>
             <br>
             
             <div>
@@ -40,15 +48,13 @@
                 @foreach($comments as $comment)
                     <div class=comments>
                         <br>
+                        <p>[{{ $comment->user->name }}]</p>
                         <p>・{{ $comment->comment }}</p>
-                        <p>コメントした人：{{ $comment->user->name }}</p>
                         <p>投稿日：<strong>{{ $comment->created_at->diffForHumans() }}</strong></p>
                 @endforeach
             </div>
             
-            <div class='footer'>
-                <a href='/ivent'>戻る</a>
-            </div>
+            
         </body>
     </x-app-layout>
     

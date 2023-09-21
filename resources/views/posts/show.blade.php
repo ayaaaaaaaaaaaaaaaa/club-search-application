@@ -17,6 +17,11 @@
                 <div class='post'>
                     <h2 class='title'>{{ $post->title }}</h2>
                     <p class='body'>{{ $post->body }}</p>
+                    @if($post->photo)
+                    <div>
+                        <img src="{{ $post->photo }}" alt="画像が読み込めません。"/>
+                    </div>
+                    @endif
                 </div>
             </div>
             
@@ -32,23 +37,24 @@
                 </div>
                 <input type="submit" value="送信"/>
             </form>
+            <div class='back'>
+                <a href='/'>戻る</a>
+            </div>
             
             <br>
             
             <div>
-                <h3>コメント一覧</h3>
+                <h3><コメント一覧></h3>
                 @foreach($comments as $comment)
                     <div class=comments>
                         <br>
+                        <p>[{{ $comment->user->name }}]</p>
                         <p>・{{ $comment->comment }}</p>
-                        <p>コメントした人：{{ $comment->user->name }}</p>
                         <p>投稿日：<strong>{{ $comment->created_at->diffForHumans() }}</strong></p>
                 @endforeach
             </div>
             
-            <div class='footer'>
-                <a href='/'>戻る</a>
-            </div>
+            
         </body>
     </x-app-layout>
     

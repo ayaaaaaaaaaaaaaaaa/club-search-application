@@ -21,6 +21,11 @@
                             <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                         </h2>
                         <p class='body'>{{ $post->body }}</p>
+                        @if($post->photo)
+                        <div>
+                           <img src="{{ $post->photo }}" alt="画像が読み込めません。"/> 
+                        </div>
+                        @endif
                         <br>
                     </div>
                 @endforeach
