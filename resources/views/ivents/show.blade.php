@@ -29,6 +29,22 @@
                 <a href="/ivents/{{ $ivent->id }}/edit">編集</a>
             </div>
             
+            <div class="delete">
+                <form action="/ivents/{{ $ivent->id }}" id="form_{{ $ivent->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deletePost({{ $ivent->id }})">削除</button>
+                </form>
+                <script>
+                    function deletePost(id){
+                        'use strict'
+                        if(confirm('削除すると復元できません。\n本当に削除しますか？')){
+                            document.getElementById(`form_${id}`).submit();
+                        }
+                    }
+                </script>
+            </div>
+            
             <form action="/{{ $ivent->id }}/comment" method="POST">
                 @csrf
                 <div class="comment">
@@ -44,7 +60,7 @@
             <br>
             
             <div>
-                <h3>コメント一覧</h3>
+                <h3>＜コメント一覧＞</h3>
                 @foreach($comments as $comment)
                     <div class=comments>
                         <br>

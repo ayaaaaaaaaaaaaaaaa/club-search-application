@@ -47,4 +47,10 @@ class IventController extends Controller
     {
         return view('ivents.edit')->with(['ivent' => $ivent]);
     }
+    
+    public function ivents_delete(Ivent $ivent)
+    {
+        $ivent->delete();
+        return redirect('/ivents/'. $ivent->id);
+    }
 }
