@@ -31,6 +31,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts/{post}', 'posts_show')->name('posts_show');
     Route::put('/posts/{post}', 'posts_update')->name('posts_update');
     Route::get('/posts/{post}/edit', 'posts_edit')->name('posts_edit');
+    Route::delete('/posts/{post}','posts_delete')->name('posts_delete');
 });
 
 Route::controller(IventController::class)->middleware(['auth'])->group(function(){
@@ -40,6 +41,7 @@ Route::controller(IventController::class)->middleware(['auth'])->group(function(
    Route::get('/ivents/{ivent}', 'ivents_show')->name('ivents_show');
    Route::put('/ivents/{ivent}', 'ivents_update')->name('ivents_update');
    Route::get('/ivents/{ivent}/edit', 'ivents_edit')->name('ivents_edit');
+   Route::delete('/ivents/{ivent}','ivents_delete')->name('ivents_delete');
 });
 
 Route::controller(CommentController::class)->middleware(['auth'])->group(function(){
