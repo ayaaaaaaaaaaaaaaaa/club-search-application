@@ -23,6 +23,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+/*Route::get('/user', function(){
+    return view('users.show');
+})->middleware(['auth', 'verified'])->name('user');
+*/
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'timeline')->name('timeline');
