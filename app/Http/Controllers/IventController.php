@@ -21,7 +21,7 @@ class IventController extends Controller
     
     public function ivents_show(Ivent $ivent)
     {
-        return view('ivents.show')->with(['ivent' => $ivent, 'comments' => $ivent->comments()->get()]);
+        return view('ivents.show')->with(['ivent' => $ivent, 'comments' => $ivent->comments()->latest()->get()]);
     }
 
     public function ivents_store(IventRequest $request, Ivent $ivent)
@@ -51,6 +51,6 @@ class IventController extends Controller
     public function ivents_delete(Ivent $ivent)
     {
         $ivent->delete();
-        return redirect('/ivents/'. $ivent->id);
+        return redirect('/ivent');
     }
 }

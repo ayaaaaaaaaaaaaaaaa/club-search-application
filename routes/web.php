@@ -45,8 +45,8 @@ Route::controller(IventController::class)->middleware(['auth'])->group(function(
 });
 
 Route::controller(CommentController::class)->middleware(['auth'])->group(function(){
-    Route::post('/{post}/comment', 'posts_comment')->name('posts_comment');
-    Route::post('/{ivent}/comment','ivents_comment')->name('ivents_comment');
+    Route::post('/post/{post}/comment', 'posts_comment')->name('posts_comment');
+    Route::post('/ivent/{ivent}/comment','ivents_comment')->name('ivents_comment');
 
 });
 

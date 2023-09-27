@@ -33,7 +33,7 @@ class PostController extends Controller
     
     public function posts_show(Post $post)
     {
-        return view('posts.show')->with(['post' => $post, 'comments' => $post->comments()->get()]);
+        return view('posts.show')->with(['post' => $post, 'comments' => $post->comments()->latest()->get()]);
     }
     
     public function posts_edit(Post $post)
