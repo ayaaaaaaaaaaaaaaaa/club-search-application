@@ -33,10 +33,10 @@
                 <form action="/ivents/{{ $ivent->id }}" id="form_{{ $ivent->id }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="button" onclick="deletePost({{ $ivent->id }})">削除</button>
+                    <button type="button" onclick="deleteIvent({{ $ivent->id }})">削除</button>
                 </form>
                 <script>
-                    function deletePost(id){
+                    function deleteIvent(id){
                         'use strict'
                         if(confirm('削除すると復元できません。\n本当に削除しますか？')){
                             document.getElementById(`form_${id}`).submit();
@@ -45,7 +45,7 @@
                 </script>
             </div>
             
-            <form action="/{{ $ivent->id }}/comment" method="POST">
+            <form action="/ivent/{{ $ivent->id }}/comment" method="POST">
                 @csrf
                 <div class="comment">
                     <h3>コメント</h3>

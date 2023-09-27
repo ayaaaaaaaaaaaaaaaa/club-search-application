@@ -45,7 +45,7 @@
                 </script>
             </div>
             
-            <form action="/{{ $post->id }}/comment" method="POST">
+            <form action="/post/{{ $post->id }}/comment" method="POST">
                 @csrf
                 <div class="comment">
                     <h3>コメント</h3>
